@@ -1,0 +1,14 @@
+- hosts: all
+  handlers:
+  - name: Redhat restart httpd
+    service:
+      name: httpd
+      state: restarted
+
+  - name: Ubuntu restart httpd
+    service:
+      name: apache2
+      state: restarted
+
+  tasks:
+  - include_tasks: "{{ ansible_os_family }}-gulzat.yml"

@@ -1,0 +1,30 @@
+- name: Install the latest version of Apache
+  yum:
+    name: httpd
+    state: latest
+
+- name: Make sure a service is running
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+  
+- name: Download Templates
+  get_url:
+    url: https://www.free-css.com/assets/files/free-css-templates/download/page258/bluesky.zip
+    dest: /var/www/html/
+
+- name: Install unzip
+  yum:
+    name: unzip
+    state: latest
+
+- name: unzip 
+  unarchive:
+    src: /var/www/html/bluesky.zip
+    dest: /var/www/html/
+    remote_src: yes
+
+- name: Move Files
+  shell: rsync -r /var/www/html/bluesky/* /var/www/html/
+  notify: Redhat restart httpd
