@@ -12,10 +12,10 @@
   notify: Ubuntu restart httpd
 
 
-- name: Download Templates
-  get_url:
-    url: https://www.free-css.com/assets/files/free-css-templates/download/page253/travel.zip
-    dest: /var/www/html/
+#- name: Download Templates
+ # get_url:
+  #  url: https://www.free-css.com/assets/files/free-css-templates/download/page253/travel.zip
+   # dest: /var/www/html
 
 - name: Install unzip
   apt:
@@ -26,7 +26,7 @@
 - name: unzip 
   unarchive:
     src: /var/www/html/travel.zip
-    dest: /var/www/html/
+    dest: /var/www/html
     remote_src: yes
 
 - name: Move Files

@@ -1,6 +1,5 @@
-[Centos]
-54.89.23.41   ansible_user=Centos
+[RedHat]
+3.93.145.221 ansible_user=centos
 
-
-[ubuntu]
-34.207.162.73  ansible_user=ubuntu
+[Debian]
+3.82.236.58 ansible_user=ubuntu
